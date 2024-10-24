@@ -1,0 +1,18 @@
+.header-form {
+  height: 60px;
+  background: linear-gradient(to right, blue, white);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+.ullist {
+  display: flex;
+  /* flex-direction: row; */
+  list-style-type: none;
+}
+.ullist li {
+  padding: 0px 50px;
+  font-size: 25px;
+  font-weight: bold;
+  /* color: red; */
+}

@@ -1,24 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import { Outlet } from "react-router-dom";
+import ManContext from "./ManContext";
+import React, { useState, useEffect } from "react";
+import Header from "./Header";
 function App() {
+  const [userdata, setUserData] = useState("");
+  const [peoplesList, setpeoplesList] = useState([]);
+  useEffect(() => {
+    const data = {
+      name: "sreekanth",
+
+      people: [
+        {
+          name: "sreekanth",
+          age: 23,
+          city: "hyderabad",
+        },
+        {
+          name: "krishnan",
+          age: 23,
+          city: "hyderabad",
+        },
+        {
+          name: "mahesh",
+          age: 23,
+          city: "hyderabad",
+        },
+        {
+          name: "shiva",
+          age: 23,
+          city: "hyderabad",
+        },
+      ],
+    };
+
+    setUserData(data.name);
+    setpeoplesList(data.people);
+  }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const people = {
+        name: "hanuman",
+      };
+      setUserData(people.name);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ManContext.Provider
+      value={{ user: userdata, people: peoplesList, setUserData }}
+    >
+      <div>
+        <Header />
+        <Outlet />
+      </div>
+    </ManContext.Provider>
   );
 }
 
