@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import { Provider } from "react-redux";
 import Header from "./Header";
 import appStore from "./store/appStore";
+
 function App() {
   const [userdata, setUserData] = useState("");
   const [peoplesList, setpeoplesList] = useState([]);
