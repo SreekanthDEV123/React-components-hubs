@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { addToCart } from "./store/cartSlice";
+import { useDispatch } from "react-redux";
 const PatientForm = () => {
+  const dispatch = useDispatch();
   const [details, setDetails] = useState({
     name: "",
     diabetties: "",
@@ -9,6 +12,7 @@ const PatientForm = () => {
   });
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(addToCart({ details }));
   };
   const inputHandler = (e) => {
     const { name, value } = e.target;

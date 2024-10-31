@@ -3,7 +3,9 @@ import "./App.css";
 import { Outlet } from "react-router-dom";
 import ManContext from "./ManContext";
 import React, { useState, useEffect } from "react";
+import { Provider } from "react-redux";
 import Header from "./Header";
+import appStore from "./store/appStore";
 function App() {
   const [userdata, setUserData] = useState("");
   const [peoplesList, setpeoplesList] = useState([]);
@@ -50,14 +52,16 @@ function App() {
   }, []);
 
   return (
-    <ManContext.Provider
-      value={{ user: userdata, people: peoplesList, setUserData }}
-    >
-      <div>
-        <Header />
-        <Outlet />
-      </div>
-    </ManContext.Provider>
+    <Provider store={appStore}>
+      <ManContext.Provider
+        value={{ user: userdata, people: peoplesList, setUserData }}
+      >
+        <div>
+          <Header />
+          <Outlet />
+        </div>
+      </ManContext.Provider>
+    </Provider>
   );
 }
 
