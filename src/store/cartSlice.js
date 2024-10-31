@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    hotels: [1,2,3],
+    hotels: [1,2,3,4],
     items1: ["aa"],
     gadgets: ["soap"],
   },
