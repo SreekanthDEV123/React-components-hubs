@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    hotels: [1,2,3],
-    items1: ["aa"],
+    hotels: [1, 2, 3],
+    luxury: ["aa"],
     gadgets: ["soap"],
   },
   reducers: {
